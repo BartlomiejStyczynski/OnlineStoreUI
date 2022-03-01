@@ -1,0 +1,28 @@
+﻿@page "/user/register"
+
+
+
+<h3>Register new user.</h3>
+
+<div class="card-body">
+    <EditForm Model="UserRegisterModel" OnValidSubmit="HandleRegistration">
+        <DataAnnotationsValidator/>
+        <ValidationSummary/>
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <label for="lastName">Second Name</label>
+            <label for="username">User name</label>
+            <label for="password">Password</label>
+            <label for="dateOfBirth">DoB</label>
+        </div>
+    </EditForm>
+</div>
+
+@code {
+    UserRegisterDto UserRegisterModel = new UserRegisterDto();
+
+    private async Task HandleRegistration()
+    {
+        
+    }
+}
