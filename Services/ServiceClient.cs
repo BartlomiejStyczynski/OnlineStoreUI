@@ -106,13 +106,11 @@ namespace OnlineStoreUI.Services
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.15.10.0 (NJsonSchema v10.6.10.0 (Newtonsoft.Json v12.0.0.0))")]
     public partial class Client : IClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
 
-        public Client(string baseUrl, System.Net.Http.HttpClient httpClient)
+        public Client(System.Net.Http.HttpClient httpClient)
         {
-            BaseUrl = baseUrl;
             _httpClient = httpClient;
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(CreateSerializerSettings);
         }
@@ -122,12 +120,6 @@ namespace OnlineStoreUI.Services
             var settings = new Newtonsoft.Json.JsonSerializerSettings();
             UpdateJsonSerializerSettings(settings);
             return settings;
-        }
-
-        public string BaseUrl
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
         }
 
         protected Newtonsoft.Json.JsonSerializerSettings JsonSerializerSettings { get { return _settings.Value; } }
@@ -151,7 +143,7 @@ namespace OnlineStoreUI.Services
         public virtual async System.Threading.Tasks.Task<Int32ServiceResponse> RegisterAsync(UserRegisterDto body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Auth/Register");
+            urlBuilder_.Append("Auth/Register");
 
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -228,7 +220,7 @@ namespace OnlineStoreUI.Services
         public virtual async System.Threading.Tasks.Task<StringServiceResponse> LoginAsync(UserLoginDto body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Auth/Login");
+            urlBuilder_.Append("Auth/Login");
 
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -308,7 +300,7 @@ namespace OnlineStoreUI.Services
                 throw new System.ArgumentNullException("id");
 
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Cart/Get all users cart items{id}");
+            urlBuilder_.Append("Cart/Get all users cart items{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
 
             var client_ = _httpClient;
@@ -395,7 +387,7 @@ namespace OnlineStoreUI.Services
         public virtual async System.Threading.Tasks.Task<GetItemDtoListServiceResponse> Remove_item_from_cartAsync(RemoveCartItemDto body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Cart/remove item from cart");
+            urlBuilder_.Append("Cart/remove item from cart");
 
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -484,7 +476,7 @@ namespace OnlineStoreUI.Services
         public virtual async System.Threading.Tasks.Task<GetItemDtoListServiceResponse> Add_item_to_cartAsync(AddCartItemDto body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Cart/Add item to cart");
+            urlBuilder_.Append("Cart/Add item to cart");
 
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -573,7 +565,7 @@ namespace OnlineStoreUI.Services
         public virtual async System.Threading.Tasks.Task<NewlyCreatedCartDtoServiceResponse> CreateNewCartAsync(CreateNewCartDto body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Cart/CreateNewCart");
+            urlBuilder_.Append("Cart/CreateNewCart");
 
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -665,7 +657,7 @@ namespace OnlineStoreUI.Services
                 throw new System.ArgumentNullException("id");
 
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Cart/DeleteCart{id}");
+            urlBuilder_.Append("Cart/DeleteCart{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
 
             var client_ = _httpClient;
@@ -755,7 +747,7 @@ namespace OnlineStoreUI.Services
                 throw new System.ArgumentNullException("id");
 
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Cart/GetCartDetails{id}");
+            urlBuilder_.Append("Cart/GetCartDetails{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
 
             var client_ = _httpClient;
@@ -845,7 +837,7 @@ namespace OnlineStoreUI.Services
                 throw new System.ArgumentNullException("id");
 
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Cart/UpdateCartDetails{id}");
+            urlBuilder_.Append("Cart/UpdateCartDetails{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
 
             var client_ = _httpClient;

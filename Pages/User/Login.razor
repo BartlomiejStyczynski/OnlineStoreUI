@@ -1,0 +1,44 @@
+﻿@page "/user/login"
+@using OnlineStoreUI.Services.Authentication
+@inject IAuthenticationService _authService
+<h3>Login</h3>
+
+<div>
+        <EditForm Model="UserLoginModel" OnValidSubmit="HandleLogin">
+        <DataAnnotationsValidator/>
+        <ValidationSummary/>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <InputText class="form-control" @bind-Value="UserLoginModel.Username"></InputText>
+            <ValidationMessage For="@(()=> UserLoginModel.Username)"/>
+        </div>                
+        <div class="form-group">
+            <label for="firstName">Password</label>
+            <InputText class="form-control" type="password" @bind-Value="UserLoginModel.Password"></InputText>
+            <ValidationMessage For="@(()=> UserLoginModel.Password)"/>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary btn-block">Registuar</button>
+
+    </EditForm>
+</div>
+
+@code {
+    UserLoginDto UserLoginModel = new UserLoginDto();
+    string message = string.Empty;
+
+    public async Task HandleLogin()
+    {
+        try
+        {
+            var response = await _authService.AuthenticateAsync(UserLoginModel);
+
+        }
+        catch (ApiException ex)
+        {
+            
+        }
+
+    }
+}
